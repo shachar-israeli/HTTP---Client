@@ -1,11 +1,14 @@
-israelish
-Shachar Israeli 203713094
-EX2 – HTTP client
+HTTP client
 Submitted Files:
 1.client.c - parse the <URL> given , construct an HTTP request, connect to the given server ,send the HTTP request and display the response.
 2.README - this file. will try to give a short brief on my work and to explain about my methots.
 
 ** Short Brief**
+
+This program implements an HTTP client that constructs an HTTP request based on user’s command line input,
+sends the request to a Web server, receives the reply from the server, and displays the reply message on screen 
+(That program supports only IPv4 connections).
+This program can build a GET request and a POST request.
 
 1. Parse the <URL> given in the command line.
 2. Construct an HTTP request based on the options specified in the command line
@@ -102,7 +105,3 @@ output- print with the info of the read and info from the write.
 /** check the num if its rly a num or not. if not - usage and free*/
 output- return 1 if its num and 0 if its not.
   
- **hope you will enjoy my EX2 **
- Shachar Israeli
- user name: israelish
-
