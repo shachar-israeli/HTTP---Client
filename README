@@ -1,0 +1,108 @@
+israelish
+Shachar Israeli 203713094
+EX2 – HTTP client
+Submitted Files:
+1.client.c - parse the <URL> given , construct an HTTP request, connect to the given server ,send the HTTP request and display the response.
+2.README - this file. will try to give a short brief on my work and to explain about my methots.
+
+** Short Brief**
+
+1. Parse the <URL> given in the command line.
+2. Construct an HTTP request based on the options specified in the command line
+3. Connect to the server
+4. Send the HTTP request to the server
+5. Receive an HTTP response
+6. Display the response on the screen.
+
+** Remarks**
+
+i used a struct to save all my heap char* in 1 place. It helps me to keep my char* organized and most of the time i need to use few char* in a mehod.
+
+
+** install & load **
+
+in linux terminal, go to the folder that containing the Ex.
+type terminal:
+1.gcc client.c -o client -Wall
+2. ./client < give the url and the parameters to send>
+(if you want to see my Allocation and heap use, you can write: /valgrind client ...)
+
+
+**Program Functions**
+
+1.void checkFormat (Client *connectHttp,char * str)
+/** check the parameters format. should be = in the middle*/
+output: On success, the function finished without error, otherwise, we print the Usage,free our heap Strings and exit.
+
+2. int convertNumOfP(Client *connectHttp,char* argv[] , int argc , int i)
+
+/** check if after -r we got a number. if yes, return it as a num*/
+output: the int number we got after -1/ otherwise,we print the Usage,free our heap Strings and exit.
+
+3.int findPost(int i, char* str)
+/** find the index i got the -p => the post index */
+	
+4.int findR(int i, char* str)
+/** find the index i got the -r => the parameters index */
+output: On success, the function will return the index of the -r  otherwise, it return NOT_FOUND(-1)
+
+5.void textStr (Client *connectHttp, char* argv[] , int postIndex ,int argc)
+/** save the text that comes along with the -p index */
+output: save the text in my connect struct.
+
+6.void parameterStr (Client *connectHttp ,char* argv[] , int rIndex ,int howManyP,int argc)
+/** take all the parameters and concatenate it to 1 char* */
+output: save the parameters in my connection struct. check also there the format and thats i got the right number of parameters.
+
+7.int findUrl ( int i,char* str){
+/** find the Url - will try find the http:// */
+output: On success, the function will return the index of the URL otherwise, it return NOT_FOUND(-1)
+	
+	
+8.void breakTheUrl (Client *connectHttp , char* url)
+/** take the host-name , port, path and save them in the Struct*/
+
+output:the function save the Hostname, port and path in my struct. 
+
+9.void freeObject(Client *connectHttp)
+/** free the heap char* if its not NULL mean i need to free it*/
+output: free my heap char* strings. if its not null it means that i alloacked it and need to free it .
+
+10.void printUsage ()
+/** print the Error format usage.*/
+
+output: print the error format. after this methods we will free our heap and quit.
+
+	
+11.int connectServer(Client *connectHttp){
+/** connect and build the socket*/
+output: return the fd for the socket, otherwise there is a problem with the connection and quit.
+
+12.void buildRequest (Client *connectHttp,int postIndex,int rIndex)
+/** build the request in the right format that we can send it to the server.*/
+output - none. save the right request in the struct.
+
+13.int countDigit(int num)
+/** count how many digit i got in the length of the text after -p.*/
+output- num of digit in the number
+
+14.void InitializingStruct(Client *connectHttp)
+/** Initial my Struct and give all the char* a null pointer*/
+output- none. 
+
+15.int main (int argc, char* argv[])
+/** here we get all the text that we need to work with. also from here we will read and write to server and print the response.*/
+output- few prints to the screen with the information about our items we send to the server.also we will print the response. 
+
+16.void sendAndReceive(Client* connectHttp);
+/** here we get all the info ,read and write to the server. we have the buffer that will save our receive.*/
+output- print with the info of the read and info from the write.
+
+17.int isNum(char* s);
+/** check the num if its rly a num or not. if not - usage and free*/
+output- return 1 if its num and 0 if its not.
+  
+ **hope you will enjoy my EX2 **
+ Shachar Israeli
+ user name: israelish
+
