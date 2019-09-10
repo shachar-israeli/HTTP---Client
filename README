@@ -1,4 +1,6 @@
 HTTP client
+
+
 Submitted Files:
 1.client.c - parse the <URL> given , construct an HTTP request, connect to the given server ,send the HTTP request and display the response.
 2.README - this file. will try to give a short brief on my work and to explain about my methots.
